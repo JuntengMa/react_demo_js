@@ -6,19 +6,20 @@ const {
   addWebpackPlugin,
   addPostcssPlugins
 } = require("customize-cra");
-const path = require("path");
-const ProgressBarPlugin = require("progress-bar-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
 const isEnvProduction = process.env.NODE_ENV === "production";
 
 //测时长
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
-
 
 const addCompression = () => config => {
   if (isEnvProduction) {
