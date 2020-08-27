@@ -7,7 +7,7 @@ import enGB from 'antd/es/locale/en_GB';
 
 import moment from 'moment';
 
-export default function App () {
+export default function App() {
   const [lang, setLang] = useState(zhCN);
   return (
     <ConfigProvider locale={lang}>
