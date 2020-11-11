@@ -2,12 +2,10 @@ const {
   override,
   fixBabelImports,
   addLessLoader,
-  addWebpackAlias,
   addWebpackPlugin,
   addPostcssPlugins
 } = require("customize-cra");
 
-const path = require("path");
 
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 
@@ -16,12 +14,11 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
 
-//   production
+// production
 const isEnvProduction = process.env.NODE_ENV === "development";
 
 //测时长
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-const smp = new SpeedMeasurePlugin();
 
 const addCompression = () => config => {
   if (isEnvProduction) {
@@ -48,11 +45,8 @@ const addAnalyzer = () => config => {
   return config;
 };
 
-
-
-
-
 module.exports = override(
+
   fixBabelImports("import",
     {
       libraryName: "antd",
@@ -87,7 +81,8 @@ module.exports = override(
   addAnalyzer(),
 
   addWebpackPlugin(
-    new ProgressBarPlugin()
+    new ProgressBarPlugin(),
   ),
+
 
 )
