@@ -10,7 +10,6 @@ export class ContextDemo extends React.Component {
       <ToggleProvider>
         <Toolbar />
       </ToggleProvider>
-      
     )
   }
 }
