@@ -3,7 +3,7 @@
 已经做过的一些配置:
 - antd
 - webpack 自定义
-- axios 建议封装
+- axios 简易封装
 - redux
 - ....
 
