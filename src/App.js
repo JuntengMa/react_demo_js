@@ -1,15 +1,22 @@
 import React from 'react';
 
-import { LifeCircleDemo, HookTest, NewLifeCircleTest, ContextDemo} from './Views';
+import {
+  LifeCircleDemo,
+  HookTest,
+  NewLifeCircleTest,
+  ContextDemo,
+  // ReactDemo,
+} from './Views/Components';
 
-export default function App() {
+export default function App(props) {
   return (
     <div>
-      {/* <LifeCircleDemo /> */}
+      <LifeCircleDemo />
       {/* <NewLifeCircleTest /> */}
       {/* <HookTest/> */}
-      <ContextDemo />
-    </div> 
+      {/* <ContextDemo /> */}
+      {/* <ReactDemo/> */}
+    </div>
   );
 }
 

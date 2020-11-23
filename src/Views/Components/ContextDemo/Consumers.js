@@ -1,15 +1,15 @@
 import React from 'react';
-import { ToggleConsumer } from './ToggleContext' 
+import { Consumer} from './index.js' 
 
-export class Consumer extends React.Component {
+export class Consumers extends React.Component {
   render() {
-    return <ToggleConsumer>
+    return <Consumer>
       {
         ({ toggle, handleToggle}) =>
           <button onClick={() => handleToggle()}>
             {toggle ? '✔' : '❌'}
           </button>
       }
-    </ToggleConsumer>
+    </Consumer>
   }
 }
