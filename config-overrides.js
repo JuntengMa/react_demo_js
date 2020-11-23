@@ -6,13 +6,11 @@ const {
   addPostcssPlugins
 } = require("customize-cra");
 
-
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
-
 
 // production
 const isEnvProduction = process.env.NODE_ENV === "development";
@@ -20,6 +18,7 @@ const isEnvProduction = process.env.NODE_ENV === "development";
 //测时长
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
+// product环境开启gzip压缩
 const addCompression = () => config => {
   if (isEnvProduction) {
     config.plugins.push(
@@ -33,7 +32,6 @@ const addCompression = () => config => {
       })
     );
   }
-
   return config;
 };
 
@@ -45,13 +43,44 @@ const addAnalyzer = () => config => {
   return config;
 };
 
+// 打包配置
+const addCustomize = () => config => {
+  if (process.env.NODE_ENV === 'production') {
+    // 关闭sourceMap
+    config.devtool = false;
+    // 配置打包后的文件位置
+    config.output.path = __dirname + '../dist/demo/';
+    config.output.publicPath = './demo';
+  }
+  return config;
+}
+
+//跨域配置
+const devServerConfig = () => config => {
+  return {
+    ...config,
+    // 服务开启gzip
+    compress: true,
+    proxy: {
+      '/api': {
+        target: 'xxx',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api',
+        },
+      }
+    }
+  }
+}
+
 module.exports = override(
+
+  addCustomize(),
 
   fixBabelImports("import",
     {
       libraryName: "antd",
       libraryDirectory: "es",
-      // 若修改antd主题，"css"需改为true
       style: "css"
     }
   ),
