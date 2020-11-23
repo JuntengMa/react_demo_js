@@ -7,11 +7,12 @@ import {
   ContextDemo,
   // ReactDemo,
 } from './Views/Components';
-
+import './App.less'
 export default function App(props) {
   return (
-    <div>
+    <div id="app">
       <LifeCircleDemo />
+      123
       {/* <NewLifeCircleTest /> */}
       {/* <HookTest/> */}
       {/* <ContextDemo /> */}
