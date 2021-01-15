@@ -1,9 +1,5 @@
-export { LifeCircleDemo } from './LifeCircleDemo/index.js'
-export { HookTest } from './HookDemo/HookDemo.jsx'
-export { NewLifeCircleTest } from './GetDerviedStateFormPropsDemo'
-export { ContextDemo } from './ContextDemo'
-export { Admin } from './React-router-demo/Admin.js'
-export { Backend } from './React-router-demo/Backend.js'
-export { Home } from './React-router-demo/Home.js'
-export { Login } from './React-router-demo/Login.js'
-export { ReactDemo } from './React-router-demo/RouterDemo.js'
+export { LifeCircleDemo } from './LifeCircleDemo/index.js';
+export { HookTest } from './HookDemo/HookDemo.jsx';
+export { NewLifeCircleTest } from './GetDerviedStateFormPropsDemo';
+export { ContextDemo } from './ContextDemo';
+export { EditorDemo } from './RichText/RichText.jsx';
